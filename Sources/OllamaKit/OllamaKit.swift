@@ -22,9 +22,10 @@ public struct OllamaKit {
     var router: OKRouter.Type
     var decoder: JSONDecoder = .default
     
-    public init(baseURL: URL) {
+    public init(baseURL: URL, bearerToken: String? = nil) {
         let router = OKRouter.self
         router.baseURL = baseURL
+        router.bearerToken = bearerToken
         
         self.router = router
     }
