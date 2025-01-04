@@ -29,10 +29,10 @@ extension OllamaKit {
     ///
     /// - Parameter data: The ``OKChatRequestData`` used to initiate the chat streaming from the Ollama API.
     /// - Returns: An `AnyPublisher<OKChatResponse, AFError>` emitting the live stream of chat responses from the Ollama API.
-    public func chat(data: OKChatRequestData) -> AnyPublisher<OKChatResponse, Error> {
+    public func chat(data: OKChatRequestData, api: String = "/api/chat") -> AnyPublisher<OKChatResponse, Error> {
         let subject = PassthroughSubject<OKChatResponse, Error>()
-        let request = AF.streamRequest(router.chat(data: data)).validate()
-        
+        let request = AF.streamRequest(router.chat(data: data, api: api)).validate()
+
         request.responseStream { stream in
             switch stream.event {
             case .stream(let result):
