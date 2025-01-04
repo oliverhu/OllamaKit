@@ -85,7 +85,7 @@ extension OKRouter: URLRequestConvertible {
             request.httpBody = try JSONEncoder.default.encode(data)
         case .chat(let data, let path):
             let url = OKRouter.baseURL.appendingPathComponent(path)
-            var request = URLRequest(url: url)
+            request = URLRequest(url: url)
             request.method = method
             request.headers = headers
             request.httpBody = try JSONEncoder.default.encode(data)
