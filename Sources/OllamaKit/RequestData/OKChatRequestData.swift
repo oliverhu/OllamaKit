@@ -28,7 +28,7 @@ public struct OKChatRequestData: Encodable {
     
     /// A structure that represents a single message in the chat request.
     public struct Message: Encodable {
-        /// A ``Role`` value indicating the sender of the message (system, assistant, user).
+        /// A string value to identify the conversation.
         public let conversationId: String
 
         /// A ``Role`` value indicating the sender of the message (system, assistant, user).
